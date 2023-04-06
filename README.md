@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# MovieMade
+MovieMade is a web application for managing and organizing movie collections. The project is divided into separate repositories for the backend and frontend components, utilizing Python, Django, MySQL for the backend, and React for the frontend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Frontend Repository
+The frontend repository contains the client-side code for the MovieMade application. It uses React to create an interactive user interface for managing movie collections.
 
-## Available Scripts
+### Prerequisites
+Before running the frontend, make sure you have the following installed:
 
-In the project directory, you can run:
+- Node.js (version 14+)
+- npm (version 7+)
 
-### `npm start`
+### Installation
+To install the frontend:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone the frontend repository to your local machine.
+Navigate to the frontend directory.
+Install the dependencies using npm install.
+Start the development server using npm start.
+The frontend application will now be running at http://localhost:3000/.
+Usage
+The frontend provides a user-friendly interface for managing movies and genres. Users can view, add, edit, and delete movies, as well as filter movies by genre. The frontend communicates with the backend API to perform these operations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### API Endpoints
+The backend provides the following API endpoints for the frontend to interact with:
 
-### `npm test`
+- /api/movies: CRUD operations for managing movies.
+- /api/users: CRUD operations for managing users.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Make sure to refer to the backend's API documentation for detailed information on each endpoint, including request and response formats.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
+To deploy the frontend in a production environment, you can build the production version of the application using npm run build, and then serve the build files using a web server of your choice.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Contributing
+If you wish to contribute to the MovieMade project, please follow the guidelines in the CONTRIBUTING.md file in the respective repositories.
 
-### `npm run build` fails to minify
+### License
+The MovieMade project is open-source and released under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Contact
+If you have any questions or issues with the MovieMade project, please contact the project maintainers or create an issue in the respective repositories.
+
+Happy movie managing with MovieMade! 🎥🍿🎞️
+
+## Author 
+Marek Drąg
