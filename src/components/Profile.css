@@ -1,0 +1,19 @@
+/* Profile.css */
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .profile-form input, .profile-form button {
+    padding: 10px;
+  }
+  
+  .profile-form button {
+    cursor: pointer;
+  }
+  
