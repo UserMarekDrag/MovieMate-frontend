@@ -1,19 +1,33 @@
 /* Register.css */
 
 .register-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 300px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .register-form input, .register-form button {
-    padding: 10px;
-  }
-  
-  .register-form button {
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  margin: auto;
+  padding: 40px;
+}
+
+.register-form input, .register-form button {
+  padding: 10px;
+}
+
+.register-form button {
+  cursor: pointer;
+}
+
+.register-form input[type="checkbox"] {
+  margin: 10px 0;
+  display: block;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message {
+  color: red;
+}
