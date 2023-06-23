@@ -1,17 +1,30 @@
 /* SearchForm.css */
 
 .search-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+
+}
+
+.search-form input, .search-form button {
+  padding: 10px;
+}
+
+.search-form button {
+  cursor: pointer;
+}
+
+/* Media query for screens less than 600px */
+@media (max-width: 600px) {
+  .search-form {
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .search-form input, .search-form button {
-    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
   }
-  
-  .search-form button {
-    cursor: pointer;
-  }
-  
+}
