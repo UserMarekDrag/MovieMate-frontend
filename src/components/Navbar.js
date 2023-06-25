@@ -32,6 +32,7 @@ function Navbar() {
           <Link to="/login" onClick={closeMenu}>Login</Link>
           <Link to="/register" onClick={closeMenu}>Register</Link>
           <Link to="/profile" onClick={closeMenu}>Profile</Link>
+          <Link to="/about" onClick={closeMenu}>About us</Link>
         </div>
       </div>
     </nav>

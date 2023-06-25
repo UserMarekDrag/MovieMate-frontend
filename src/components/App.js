@@ -8,6 +8,7 @@ import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
 import SearchForm from './SearchForm';
+import AboutUs from './AboutUs';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" element={ <Login /> } />
             <Route path="/register" element={ <Register /> } />
             <Route path="/profile" element={ <Profile /> } />
+            <Route path="/about" element={ <AboutUs /> } />
         </Routes>
         <Footer />
     </Router>
