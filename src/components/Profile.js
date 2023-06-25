@@ -34,8 +34,8 @@ function Profile() {
       <p>User name: {username}</p>
 
       <form className="profile-form" onSubmit={handleSubmit}>
-        <input type="text" value={newUsername} onChange={e => setNewUsername(e.target.value)} placeholder="Nowa nazwa użytkownika" />
-        <button type="submit">Update profile</button>
+        <input type="text" value={newUsername} onChange={e => setNewUsername(e.target.value)} placeholder="New username" />
+        <button type="submit">Update</button>
       </form>
     </div>
   );
