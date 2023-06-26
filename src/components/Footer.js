@@ -1,4 +1,3 @@
-// Importowanie wymaganych modułów i komponentów
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,10 +8,10 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-links">
-          <Link to="/privacy-policy">Polityka prywatności</Link>
-          <Link to="/terms-of-service">Warunki korzystania</Link>
+          <Link to="/privacy-policy">Privacy</Link>
+          <Link to="/terms-of-service">Terms</Link>
         </div>
-        <p>&copy; {new Date().getFullYear()} CinemaApp</p>
+        <p>&copy; {new Date().getFullYear()} MovieMate by Marek Drąg</p>
       </div>
     </footer>
   );
