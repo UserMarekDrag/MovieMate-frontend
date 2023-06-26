@@ -1,48 +1,51 @@
-# MovieMade
-MovieMade is a web application for managing and organizing movie collections. The project is divided into separate repositories for the backend and frontend components, utilizing Python, Django, MySQL for the backend, and React for the frontend.
+# MovieMate Frontend
 
-## Frontend Repository
-The frontend repository contains the client-side code for the MovieMade application. It uses React to create an interactive user interface for managing movie collections.
+Welcome to MovieMate, the ultimate movie showtimes hub for cinema lovers in Poland. This frontend repository contains the user interface code written primarily in React.
 
-### Prerequisites
-Before running the frontend, make sure you have the following installed:
+## About
 
-- Node.js (version 14+)
-- npm (version 7+)
+MovieMate offers a seamless user experience where users can select their city and date to view all available movie showtimes from major cinema chains in Poland, including Multikino and Helios. The frontend interacts with the backend service, which scrapes data daily from cinema websites to keep the information up-to-date and comprehensive.
 
-### Installation
-To install the frontend:
+## Features
 
-Clone the frontend repository to your local machine.
-Navigate to the frontend directory.
-Install the dependencies using npm install.
-Start the development server using npm start.
-The frontend application will now be running at http://localhost:3000/.
-Usage
-The frontend provides a user-friendly interface for managing movies and genres. Users can view, add, edit, and delete movies, as well as filter movies by genre. The frontend communicates with the backend API to perform these operations.
+- **Movie Showtimes**: Users can choose their city and date to view all movie showtimes from all cinemas in that city. The application offers detailed information about each showtime and includes links for additional details.
 
-### API Endpoints
-The backend provides the following API endpoints for the frontend to interact with:
+- **Reservations**: The application provides direct links for movie reservations, offering an effortless booking experience for the users.
 
-- /api/movies: CRUD operations for managing movies.
-- /api/users: CRUD operations for managing users.
+## Prerequisites
 
-Make sure to refer to the backend's API documentation for detailed information on each endpoint, including request and response formats.
+Before running the frontend, ensure you have the following installed:
+- Node.js (version 14 or above)
+- npm (version 7 or above)
 
+## Installation
 
-### Deployment
-To deploy the frontend in a production environment, you can build the production version of the application using npm run build, and then serve the build files using a web server of your choice.
+To get the frontend running on your local machine:
+1. Clone this repository.
+2. Navigate to the root directory of the repository.
+3. Install all dependencies using `npm install`.
+4. Start the development server using `npm start`.
+5. The frontend should now be accessible at http://localhost:3000/.
 
-### Contributing
-If you wish to contribute to the MovieMade project, please follow the guidelines in the CONTRIBUTING.md file in the respective repositories.
+## API Endpoints
 
-### License
-The MovieMade project is open-source and released under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
+This frontend service relies on the backend API to retrieve data. The main API endpoints are for fetching movie showtimes and user management. For detailed information about these endpoints, including request and response formats, refer to the backend API documentation.
 
-### Contact
-If you have any questions or issues with the MovieMade project, please contact the project maintainers or create an issue in the respective repositories.
+## Deployment
 
-Happy movie managing with MovieMade! 🎥🍿🎞️
+To deploy the frontend in a production environment, follow these steps:
+1. Build a production-ready version of the application using `npm run build`.
+2. Serve the built files using a web server of your choice.
 
-## Author 
+## License
+
+The MovieMate project is open-source, released under the MIT License. You are free to use, modify, and distribute the code as per the terms of the license.
+
+## Contact
+
+For any queries or issues regarding the MovieMate project, feel free to contact the project maintainers or raise an issue in this repository.
+
+Enjoy your movie showtimes with MovieMate! 🎥🍿🎞️
+
+## Author
 Marek Drąg
