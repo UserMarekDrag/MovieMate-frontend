@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import './Login.css';
 
@@ -37,6 +38,13 @@ function Login() {
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
       <button type="submit">Login</button>
       {error && <div className="error-message">{error}</div>}
+      <div class="login-links">
+        <Link to="/change-password">Forgot your password?</Link>
+      </div>
+      <div class="login-links">
+        Don't have an account yet?
+        <Link to="/register">Register now</Link>
+      </div>
     </form>
   );
 }
