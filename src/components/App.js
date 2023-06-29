@@ -9,6 +9,7 @@ import Register from './Register';
 import Profile from './Profile';
 import SearchForm from './SearchForm';
 import AboutUs from './AboutUs';
+import ResetPassword from './ResetPassword';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/register" element={ <Register /> } />
             <Route path="/profile" element={ <Profile /> } />
             <Route path="/about" element={ <AboutUs /> } />
+            <Route path="/password/reset" element={ <ResetPassword /> } />
         </Routes>
         <Footer />
     </Router>
