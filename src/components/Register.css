@@ -3,7 +3,7 @@
 .register-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
   width: 300px;
   margin: auto;
   padding: 40px;
@@ -15,17 +15,53 @@
 
 .register-form button {
   cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.register-form input[type="checkbox"] {
-  margin: 10px 0;
-  display: block;
+.input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field p.field-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  height: 1rem;
+  margin-bottom: 0px;
+  transition: margin-bottom 0.3s ease;
+}
+
+.input-field p.field-error-visible {
+  margin-bottom: 15px;
 }
 
 .checkbox-container {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 10px;
+  flex-direction: row;
+}
+
+.checkbox-container span {
+  order: 2;
+}
+
+.field-error {
+  color: red;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+  flex-direction: column;
+  align-items: end;
+  height: 1rem;
+  margin-bottom: 0px;
+  transition: margin-bottom 0.3s ease;
+}
+
+.field-error-visible {
+  margin-bottom: 15px;
 }
 
 .error-message {
@@ -36,7 +72,7 @@
   display: flex;
   align-items: end;
   justify-content: center;
-  gap: 10px;
+  gap: 2px;
   font-size: smaller;
   letter-spacing: 1px;
 }
