@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { validateRegister } from './Validation';
 
 import './Register.css';
 
@@ -10,32 +11,32 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [acceptTerms, setAcceptTerms] = useState(false);
-  const [error, setError] = useState(null);
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async event => {
-      event.preventDefault();
-  
-      // Validation
-      if (!username || !password || !email || password !== confirmPassword || !acceptTerms) {
-          setError("Please fill in all fields correctly and accept the terms and conditions.");
-          return;
-      }
-  
+    event.preventDefault();
+
+    const errors = validateRegister(username, email, password, confirmPassword, acceptTerms);
+
+    if (!errors) {
       const user = {
-          username: username,
-          password: password,
-          email: email
+          username,
+          email,
+          password
       };
-  
+
       try {
-          const response = await axios.post('http://localhost:8000/api-user/register', user);
-          console.log(response.data);
+        const response = await axios.post('http://localhost:8000/api-user/register', user);
+        console.log(response.data);
       } catch (err) {
           // Assuming the API returns a message in case of an error
-          setError(err.response.data.message);
+          setErrors({...errors, api: err.response.data.message});
       }
-  };
-  
+    } else {
+        // Handle the errors
+        setErrors(errors);
+    }
+};
 
   return (
     <form className="register-form" onSubmit={handleSubmit}>
