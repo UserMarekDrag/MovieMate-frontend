@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { validateRegister } from './Validation';
+import InputField from './InputField';
 
 import './Register.css';
 
@@ -38,24 +39,30 @@ function Register() {
     }
 };
 
-  return (
-    <form className="register-form" onSubmit={handleSubmit}>
-      <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required/>
-      <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required/>
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required/>
-      <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm Password" required/>
-      <div className="checkbox-container">
-        <input type="checkbox" checked={acceptTerms} onChange={e => setAcceptTerms(e.target.checked)} />
-        <span>I accept the terms and conditions</span>
-      </div>
-      <button type="submit">Register</button>
-      {error && <div className="error-message">{error}</div>}
-      <div class="register-links">
-        Already have an account?
-        <Link to="/login">Sign in</Link>
-      </div>
-    </form>
-  );
+return (
+  <form className="register-form" onSubmit={handleSubmit}>
+  
+    <InputField type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" error={errors.username} />
+    <InputField type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" error={errors.email} />
+    <InputField type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" error={errors.password} />
+    <InputField type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm Password" error={errors.confirmPassword} />
+  
+    <div className="checkbox-container">
+      <input type="checkbox" checked={acceptTerms} onChange={e => setAcceptTerms(e.target.checked)} />
+      <span>I accept the terms and conditions</span>
+    </div>
+    {errors.acceptTerms && <p className="field-error">{errors.acceptTerms}</p>}
+    
+    <button type="submit">Register</button>
+    {errors.api && <div className="error-message">{errors.api}</div>}
+    
+    <div className="register-links">
+      <span>Already have an account?</span>
+      <Link to="/login">Sign in</Link>
+    </div>
+  
+  </form>
+);
 }
 
 export default Register;
