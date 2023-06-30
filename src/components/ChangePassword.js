@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import InputField from './InputField';
 
 import './ChangePassword.css';
 
@@ -55,15 +56,15 @@ function ChangePassword() {
   
     return (
         <form className="password-form" onSubmit={handleSubmit}>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="New Password" required/>
-            <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm Password" required/>
+            <InputField type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" error={errors.password} />
+            <InputField type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm Password" error={errors.confirmPassword} />
             <button type="submit">Change password</button>
             {errors.api && <div className="error-message">{errors.api}</div>}
             <div className="password-links">
                 <Link to="/password/reset">Request a new confirmation email.</Link>
             </div>
             <div className="password-links">
-                Already have an account?
+                <spam>Already have an account?</spam>
                 <Link to="/login">Sign in</Link>
             </div>
         </form>
