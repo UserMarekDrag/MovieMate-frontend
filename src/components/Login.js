@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import InputField from './InputField';
 
 import './Login.css';
 
@@ -34,15 +35,15 @@ function Login() {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
+      <InputField type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
+      <InputField type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
       <button type="submit">Login</button>
       {error && <div className="error-message">{error}</div>}
       <div class="login-links">
-        <Link to="/change-password">Forgot your password?</Link>
+        <Link to="/password/reset">Forgot your password?</Link>
       </div>
       <div class="login-links">
-        Don't have an account yet?
+        <span>Don't have an account yet?</span>
         <Link to="/register">Register now</Link>
       </div>
     </form>

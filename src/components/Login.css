@@ -3,7 +3,7 @@
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0px;
     width: 300px;
     margin: auto;
     padding: 40px;
@@ -12,9 +12,18 @@
   .login-form input, .login-form button {
     padding: 10px;
   }
+
+  .input-field {
+    display: flex;
+    flex-direction: column;
+  }
   
   .login-form button {
     cursor: pointer;
+  }
+
+  .error-message {
+    color: red;
   }
   
   .login-links {
@@ -24,11 +33,11 @@
     gap: 10px;
     font-size: smaller;
     letter-spacing: 1px;
+    margin-top: 10px;
   }
   
   .login-links a {
     text-decoration: none;
-
   }
   
   @media (max-width: 600px) {
