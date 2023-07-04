@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -11,6 +12,8 @@ import SearchForm from './SearchForm';
 import AboutUs from './AboutUs';
 import ResetPassword from './ResetPassword';
 import ChangePassword from './ChangePassword';
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
