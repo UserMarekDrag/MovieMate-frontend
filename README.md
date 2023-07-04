@@ -15,17 +15,20 @@ MovieMate offers a seamless user experience where users can select their city an
 ## Prerequisites
 
 Before running the frontend, ensure you have the following installed:
-- Node.js (version 14 or above)
-- npm (version 7 or above)
+- Docker 
+- docker-compose
 
 ## Installation
 
 To get the frontend running on your local machine:
 1. Clone this repository.
 2. Navigate to the root directory of the repository.
-3. Install all dependencies using `npm install`.
-4. Start the development server using `npm start`.
-5. The frontend should now be accessible at http://localhost:3000/.
+3. Build the Docker image and start the containers using `docker-compose up --build`.
+4. The frontend should now be accessible at http://localhost:3000/.
+
+## Docker
+
+We use Docker to simplify the development and deployment processes. All the necessary configurations are provided in the Dockerfile and docker-compose.yml file in the repository.
 
 ## API Endpoints
 
@@ -34,8 +37,10 @@ This frontend service relies on the backend API to retrieve data. The main API e
 ## Deployment
 
 To deploy the frontend in a production environment, follow these steps:
-1. Build a production-ready version of the application using `npm run build`.
-2. Serve the built files using a web server of your choice.
+1. Ensure Docker is installed on the target system.
+2. Clone this repository and navigate to the root directory.
+3. Build the Docker image and start the containers using `docker-compose up --build -d`.
+4. The frontend should now be accessible at the configured host and port.
 
 ## License
 
