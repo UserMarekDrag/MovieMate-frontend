@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './SearchForm.css';
 
 function SearchForm() {
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault();
-
+    navigate(`/movies?city=${city}&date=${date}`);
   };
 
   return (
