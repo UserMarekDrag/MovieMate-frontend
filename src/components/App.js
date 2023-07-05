@@ -20,7 +20,8 @@ function App() {
     <Router>
         <Navbar />
         <Routes>
-            <Route path="/" element={ <><SearchForm /><MovieList /></> } />
+            <Route path="/" element={ <SearchForm /> } />
+            <Route path="/movies" element={ <MovieList /> } />
             <Route path="/login" element={ <Login /> } />
             <Route path="/register" element={ <Register /> } />
             <Route path="/profile" element={ <Profile /> } />
