@@ -20,7 +20,12 @@ function MovieList() {
       const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['asc', 'asc']);
       const groupedByCinema = _.groupBy(sortedMovies, 'cinema.name');
 
-      setGroupedMovies(groupedByCinema);
+      // For each cinema, group movies with the same title
+      const groupedByCinemaAndMovie = _.mapValues(groupedByCinema, moviesInCinema => {
+        return _.groupBy(moviesInCinema, 'movie.title');
+      });
+
+      setGroupedMovies(groupedByCinemaAndMovie);
     };
 
     fetchMovies();
@@ -31,8 +36,8 @@ function MovieList() {
       {Object.keys(groupedMovies).map(cinemaName => (
         <div className="cinema-section" key={cinemaName}>
           <h2 className="cinema-name">{cinemaName}</h2>
-          {groupedMovies[cinemaName].map(movie => (
-            <MovieItem key={movie.booking_link} movie={movie} />
+          {Object.keys(groupedMovies[cinemaName]).map(movieTitle => (
+            <MovieItem key={movieTitle} movieSessions={groupedMovies[cinemaName][movieTitle]} />
           ))}
         </div>
       ))}

@@ -1,21 +1,21 @@
 import React from 'react';
+
 import './MovieItem.css';
 
-const MovieItem = ({ movie }) => {
+function MovieItem({ movieSessions }) {
+  const firstMovieSession = movieSessions[0];
+
   return (
     <div className="movie-card">
-      <img src={movie.movie.image_url} alt={movie.movie.title} className="movie-poster" />
+      <img className="movie-poster" src={firstMovieSession.movie.image_url} alt={`${firstMovieSession.movie.title} poster`} />
       <div className="movie-info">
-        <h2 className="movie-title">{movie.movie.title}</h2>
-        <p className="movie-description">{movie.movie.description}</p>
-        <div className="movie-details">
-          <span>{movie.cinema.name}</span>
-          <span>{movie.time}</span>
-        </div>
-        <a href={movie.booking_link} target="_blank" rel="noopener noreferrer" className="movie-link">More info</a>
+        <h3>{firstMovieSession.movie.title}</h3>
+        {movieSessions.map((session, index) => (
+          <a className="movie-link" href={session.booking_link} key={index}>Showtime: {session.time}</a>
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default MovieItem;
