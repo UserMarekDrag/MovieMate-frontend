@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import _ from 'lodash';
 
 import MovieItem from './MovieItem';
 import './MovieList.css';
 
 function MovieList() {
-  const [movies, setMovies] = useState([]);
+  const [groupedMovies, setGroupedMovies] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,7 +17,10 @@ function MovieList() {
       const date = searchParams.get('date');
 
       const result = await axios(`http://127.0.0.1:8000/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
-      setMovies(result.data);
+      const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['asc', 'asc']);
+      const groupedByCinema = _.groupBy(sortedMovies, 'cinema.name');
+
+      setGroupedMovies(groupedByCinema);
     };
 
     fetchMovies();
@@ -24,7 +28,14 @@ function MovieList() {
 
   return (
     <div className="movie-list">
-      {movies.map(movie => <MovieItem key={movie.booking_link} movie={movie} />)}
+      {Object.keys(groupedMovies).map(cinemaName => (
+        <div className="cinema-section" key={cinemaName}>
+          <h2 className="cinema-name">{cinemaName}</h2>
+          {groupedMovies[cinemaName].map(movie => (
+            <MovieItem key={movie.booking_link} movie={movie} />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

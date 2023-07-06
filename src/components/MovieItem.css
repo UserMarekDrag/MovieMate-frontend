@@ -1,38 +1,36 @@
 .movie-card {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  width: 70%;
-  gap: 20px;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+@media (min-width: 600px) {
+  .movie-card {
+    flex-direction: row;
+  }
+  .movie-poster {
+    width: 30%;
+    margin-right: 10px;
+  }
 }
 
 .movie-poster {
-  width: 100px;
-  height: auto;
-  border-radius: 10px;
+  width: 40%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-.movie-title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.movie-description {
-  font-size: 16px;
-}
-
-.movie-details {
+.movie-info {
   display: flex;
   flex-direction: column;
-  font-size: 16px;
+  justify-content: space-between;
 }
 
 .movie-link {
-  text-decoration: none;
-  color: #007BFF;
-  font-size: 16px;
-  margin-top: 10px;
+  align-self: flex-end;
 }
