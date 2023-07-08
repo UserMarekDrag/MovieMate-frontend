@@ -10,9 +10,26 @@
   padding: 10px;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   .movie-card {
-    flex-direction: row;
+    width: 40%;
+    height: 380px;
+  }
+  
+  .movie-info h3 {
+    font-size: small;
+  }
+}
+
+@media (min-width: 900px) {
+  .movie-card {
+    width: 32%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-card {
+    width: 23%;
   }
 }
 
