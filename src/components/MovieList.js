@@ -17,7 +17,7 @@ function MovieList() {
       const date = searchParams.get('date');
 
       const result = await axios(`http://127.0.0.1:8000/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
-      const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['asc', 'asc']);
+      const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['desc', 'asc']);
       const groupedByCinema = _.groupBy(sortedMovies, 'cinema.name');
 
       // For each cinema, group movies with the same title
