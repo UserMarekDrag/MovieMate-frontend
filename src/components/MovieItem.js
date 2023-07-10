@@ -11,9 +11,11 @@ function MovieItem({ movieSessions }) {
 
   return (
     <div className="movie-card">
-      <img className="movie-poster" src={firstMovieSession.movie.image_url} alt={`${firstMovieSession.movie.title} poster`} />
+      <a className="movie-link-individual" href={firstMovieSession.movie.movie_url}>
+        <img className="movie-poster" src={firstMovieSession.movie.image_url} alt={`${firstMovieSession.movie.title} poster`} />
+      </a>
       <div className="movie-info">
-        <h3>{firstMovieSession.movie.title}</h3>
+        <h3><a className="movie-link-individual" href={firstMovieSession.movie.movie_url}>{firstMovieSession.movie.title}</a></h3>
         <button className="showtimes-toggle" onClick={handleShowtimesToggle}>
           Showtimes
         </button>
