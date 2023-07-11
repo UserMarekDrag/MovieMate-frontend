@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './SearchForm.css';
 
-function SearchForm() {
+function SearchForm({ onSearch }) {
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
   const navigate = useNavigate();
