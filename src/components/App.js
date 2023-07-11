@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,12 +16,18 @@ import ChangePassword from './ChangePassword';
 axios.defaults.withCredentials = true;
 
 function App() {
+  const [searchParams, setSearchParams] = useState({});
+
+  const handleSearch = (params) => {
+    setSearchParams(params);
+  };
+
   return (
     <Router>
         <Navbar />
         <Routes>
-            <Route path="/" element={ <SearchForm /> } />
-            <Route path="/movies" element={ <MovieList /> } />
+            <Route path="/" element={ <SearchForm onSearch={handleSearch} /> } />
+            <Route path="/movies" element={ <MovieList searchParams={searchParams} /> } />
             <Route path="/login" element={ <Login /> } />
             <Route path="/register" element={ <Register /> } />
             <Route path="/profile" element={ <Profile /> } />
