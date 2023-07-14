@@ -37,14 +37,19 @@ function MovieList() {
 
   return (
     <div className="movie-list">
-      {Object.keys(groupedMovies).map(cinemaName => (
-        <div className="cinema-section" key={cinemaName}>
-          <h2 className="cinema-name">{cinemaName}</h2>
-          {Object.keys(groupedMovies[cinemaName]).map(movieTitle => (
-            <MovieItem key={movieTitle} movieSessions={groupedMovies[cinemaName][movieTitle]} />
-          ))}
-        </div>
-      ))}
+      {Object.entries(groupedMovies).map(([cinemaName, cinemaMovies]) => {
+        const cinemaInfo = Object.values(cinemaMovies)[0][0].cinema;
+        return (
+          <div className="cinema-section" key={cinemaName}>
+            <h2 className="cinema-name">{cinemaName}</h2>
+            <p className="cinema-city">{cinemaInfo.city}</p>
+            <p className="cinema-address">{cinemaInfo.address}</p>
+            {Object.entries(cinemaMovies).map(([movieTitle, movieSessions]) => (
+              <MovieItem movieSessions={movieSessions} key={movieTitle} />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
