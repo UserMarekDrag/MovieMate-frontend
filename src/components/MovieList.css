@@ -73,7 +73,29 @@
     align-items: center;
   }
 
-  .cinema-name, .cinema-city, .cinema-address {
+  .container-address{
     width: 100%;
+  }
+
+  .cinema-name, .cinema-address {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .cinema-name {
+    font-size: 1.5em;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  .cinema-address {
+    font-size: 1em;
+    letter-spacing: 1.5px;
+  }
+
+  .map-icon {
+    margin-top: 5px;
   }
 }
