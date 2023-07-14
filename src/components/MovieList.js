@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import { useLocation } from 'react-router-dom';
+import { SiGooglemaps } from 'react-icons/si';
 
 import MovieItem from './MovieItem';
 import './MovieList.css';
@@ -44,8 +45,13 @@ function MovieList() {
           <div className="cinema-section" key={cinemaName}>
             <div className="cinema-info">
               <h2 className="cinema-name">{cinemaName}</h2>
-              <h2 className="cinema-city">{cinemaInfo.city}</h2>
-              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="cinema-address">{cinemaInfo.address}</a>
+              <div className="container-address">
+                <p className="cinema-address">{cinemaInfo.city}</p>
+                <p className="cinema-address">{cinemaInfo.address}</p>
+                <a className="map-icon" href={googleMapsUrl} target="_blank" rel="noreferrer">
+                  <SiGooglemaps size={40}/>
+                </a>
+              </div>
             </div>
             {Object.entries(cinemaMovies).map(([movieTitle, movieSessions]) => (
               <MovieItem movieSessions={movieSessions} key={movieTitle} />
