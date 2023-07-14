@@ -39,11 +39,14 @@ function MovieList() {
     <div className="movie-list">
       {Object.entries(groupedMovies).map(([cinemaName, cinemaMovies]) => {
         const cinemaInfo = Object.values(cinemaMovies)[0][0].cinema;
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${cinemaName}, ${cinemaInfo.address}, ${cinemaInfo.city}`)}`;
         return (
           <div className="cinema-section" key={cinemaName}>
-            <h2 className="cinema-name">{cinemaName}</h2>
-            <p className="cinema-city">{cinemaInfo.city}</p>
-            <p className="cinema-address">{cinemaInfo.address}</p>
+            <div className="cinema-info">
+              <h2 className="cinema-name">{cinemaName}</h2>
+              <h2 className="cinema-city">{cinemaInfo.city}</h2>
+              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="cinema-address">{cinemaInfo.address}</a>
+            </div>
             {Object.entries(cinemaMovies).map(([movieTitle, movieSessions]) => (
               <MovieItem movieSessions={movieSessions} key={movieTitle} />
             ))}
