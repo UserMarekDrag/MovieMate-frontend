@@ -1,11 +1,23 @@
 /* SearchForm.css */
-
 .search-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
   margin: 40px 0;
+}
 
+.search-form .description-container {
+  width: 40%;
+  text-align: center;
+}
+
+.search-form .input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  width: 60%;
 }
 
 .search-form input, .search-form button {
@@ -16,15 +28,24 @@
   cursor: pointer;
 }
 
-/* Media query for screens less than 600px */
 @media (max-width: 600px) {
-  .search-form {
+  .search-form .description-container,
+  .search-form .input-container {
+    width: 80%;
+  }
+
+  .description-container p {
+    line-height: 2;
+    margin-top: 0em;
+  }
+
+  .search-form .input-container {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
   .search-form input, .search-form button {
-    width: 80%;
+    width: 100%;
     box-sizing: border-box;
   }
 }
