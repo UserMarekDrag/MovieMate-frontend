@@ -15,9 +15,19 @@ function SearchForm({ onSearch }) {
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <input type="text" value={city} onChange={e => setCity(e.target.value)} placeholder="Enter city" />
-      <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-      <button type="submit">Search</button>
+      <div className="description-container">
+        <p>
+          Search for movie screenings in your city!
+        </p>
+        <p>
+          Enter city name and select a date to see a list of movies showing in cinemas near you.
+        </p>
+      </div>
+      <div className="input-container">
+        <input type="text" value={city} onChange={e => setCity(e.target.value)} placeholder="Enter city" />
+        <input type="date" value={date} onChange={e => setDate(e.target.value)} />
+        <button type="submit">Search</button>
+      </div>
     </form>
   );
 }
