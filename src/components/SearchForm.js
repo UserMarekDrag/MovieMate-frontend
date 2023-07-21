@@ -16,9 +16,9 @@ function SearchForm({ onSearch }) {
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <div className="description-container">
-        <p>
+        <h3>
           Search for movie screenings in your city!
-        </p>
+        </h3>
         <p>
           Enter city name and select a date to see a list of movies showing in cinemas near you.
         </p>
