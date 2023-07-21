@@ -1,48 +1,49 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import InputField from './InputField';
 
 import './Login.css';
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
   const handleSubmit = async event => {
-      event.preventDefault();
-  
-      // Validation
-      if (!username || !password) {
-          setError("Please fill in all fields correctly.");
-          return;
-      }
-  
-      const user = {
-          username: username,
-          password: password,
-      };
-  
-      try {
-          const response = await axios.post('http://localhost:8000/api-user/login', user);
-          console.log(response.data);
-      } catch (err) {
-          // Assuming the API returns a message in case of an error
-          setError(err.response.data.message);
-      }
+    event.preventDefault();
+
+    if (!email || !password) {
+        setError("Please fill in all fields correctly.");
+        return;
+    }
+
+    const user = {
+        email: email,
+        password: password,
+    };
+
+    try {
+        const response = await axios.post('http://localhost:8000/api-user/login/', user);
+        localStorage.setItem('token', response.data.token);
+        navigate('/profile');
+    } catch (err) {
+        if (err.response) {
+            setError(err.response.data.message);
+        } else {
+            setError("An error occurred");
+        }
+    }
   };
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <InputField type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
+      <InputField type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email"/>
       <InputField type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
       <button type="submit">Login</button>
       {error && <div className="error-message">{error}</div>}
-      <div class="login-links">
-        <Link to="/password/reset">Forgot your password?</Link>
-      </div>
-      <div class="login-links">
+      <div className="login-links">
         <span>Don't have an account yet?</span>
         <Link to="/register">Register now</Link>
       </div>
