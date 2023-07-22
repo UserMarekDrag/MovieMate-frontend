@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Logout from './Logout';
+import { useAuth } from './useAuth';
+import Loader from './Loader';
+
+import './Profile.css';
 
 import './Profile.css';
 
 const Profile = () => {
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated, checkAuth } = useAuth();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -17,12 +23,22 @@ const Profile = () => {
         setUsername(result.data.user.username);
       } catch (error) {
         console.error(error);
-        navigate('/login');
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchUser();
-  }, [navigate]);
+  }, []);
+
+  if (!isAuthenticated && !isLoading) {
+    checkAuth();
+    return null;
+  }
+
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <div className="profile">
@@ -31,6 +47,7 @@ const Profile = () => {
       <div className="login-links">
         <span>Change your password.</span>
         <Link to="/password/change">Change password</Link>
+        <Logout />
       </div>
     </div>
   );
