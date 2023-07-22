@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { useLocation } from 'react-router-dom';
 import { SiGooglemaps } from 'react-icons/si';
 
+import Loader from './Loader';
 import MovieItem from './MovieItem';
 import './MovieList.css';
 
@@ -13,10 +14,13 @@ function useQuery() {
 
 function MovieList() {
   const [groupedMovies, setGroupedMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   let query = useQuery();
 
   useEffect(() => {
     const fetchMovies = async () => {
+      setIsLoading(true);
+
       const city = query.get("city");
       const date = query.get("date");
 
@@ -29,12 +33,18 @@ function MovieList() {
       });
 
       setGroupedMovies(groupedByCinemaAndMovie);
+      setIsLoading(false);
     };
 
     if (query.get("city") && query.get("date")) {
       fetchMovies();
     }
-  }, [query]);
+  }, [query.toString()]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
 
   return (
     <div className="movie-list">
