@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import InputField from './InputField';
@@ -10,7 +10,15 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token');
 
+    if (token) {
+      navigate('/profile');
+    }
+  }, [navigate]);
+  
   const handleSubmit = async event => {
     event.preventDefault();
 
@@ -29,11 +37,7 @@ function Login() {
         localStorage.setItem('token', response.data.token);
         navigate('/profile');
     } catch (err) {
-        if (err.response) {
-            setError(err.response.data.message);
-        } else {
-            setError("An error occurred");
-        }
+      setError("Incorrect login or password");
     }
   };
 
