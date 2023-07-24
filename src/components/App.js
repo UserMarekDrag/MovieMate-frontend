@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -23,20 +25,23 @@ function App() {
   };
 
   return (
-    <Router>
-        <Navbar />
-        <Routes>
-            <Route path="/" element={ <SearchForm onSearch={handleSearch} /> } />
-            <Route path="/movies" element={ <MovieList searchParams={searchParams} /> } />
-            <Route path="/login" element={ <Login /> } />
-            <Route path="/register" element={ <Register /> } />
-            <Route path="/profile" element={ <Profile /> } />
-            <Route path="/about" element={ <AboutUs /> } />
-            <Route path="/password/reset" element={ <ResetPassword /> } />
-            <Route path="/password/change" element={ <ChangePassword /> } />
-        </Routes>
-        <Footer />
-    </Router>
+    <>
+      <ToastContainer />
+      <Router>
+          <Navbar />
+          <Routes>
+              <Route path="/" element={ <SearchForm onSearch={handleSearch} /> } />
+              <Route path="/movies" element={ <MovieList searchParams={searchParams} /> } />
+              <Route path="/login" element={ <Login /> } />
+              <Route path="/register" element={ <Register /> } />
+              <Route path="/profile" element={ <Profile /> } />
+              <Route path="/about" element={ <AboutUs /> } />
+              <Route path="/password/reset" element={ <ResetPassword /> } />
+              <Route path="/password/change" element={ <ChangePassword /> } />
+          </Routes>
+          <Footer />
+      </Router>
+    </>
   );
 }
 
