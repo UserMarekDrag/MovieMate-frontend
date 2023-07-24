@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import InputField from './InputField';
+import { toast } from 'react-toastify';
 
 import './ChangePassword.css';
 
@@ -54,6 +55,12 @@ function ChangePassword() {
                   headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
                 });
                 console.log(response.data);
+                if (response.status === 200) {
+                    toast.success('Successfully password changed!');
+                    navigate('/profile');
+                } else {
+                    toast.error('An error occurred during password changed.');
+                }
             } catch (err) {
                 setErrors({...errors, api: err.response.data.message});
             }
