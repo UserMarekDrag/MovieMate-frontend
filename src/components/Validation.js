@@ -18,7 +18,7 @@ export const validateRegister = (username, email, password, confirmPassword, acc
   // acceptTerms validation
   if (!acceptTerms) newErrors.acceptTerms = 'You must accept the terms and conditions.';
 
+  // if newErrors is empty return {}, else return errors
+  return Object.keys(newErrors).length === 0 ? {} : newErrors;
 
-  // if newErrors is empty return null, else return errors
-  return Object.keys(newErrors).length === 0 ? null : newErrors;
 };
