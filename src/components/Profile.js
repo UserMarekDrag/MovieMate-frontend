@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Logout from './Logout';
 import { useAuth } from './useAuth';
 import Loader from './Loader';
 import Delete from './Delete';
@@ -48,7 +47,6 @@ const Profile = () => {
       <div className="login-links">
         <span>Change your password.</span>
         <Link to="/password/change">Change password</Link>
-        <Logout />
         <Delete />
       </div>
     </div>
