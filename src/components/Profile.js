@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Logout from './Logout';
 import { useAuth } from './useAuth';
 import Loader from './Loader';
+import Delete from './Delete';
 
 import './Profile.css';
 
@@ -48,6 +49,7 @@ const Profile = () => {
         <span>Change your password.</span>
         <Link to="/password/change">Change password</Link>
         <Logout />
+        <Delete />
       </div>
     </div>
   );
