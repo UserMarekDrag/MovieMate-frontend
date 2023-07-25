@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from './useAuth';
+import Logout from './Logout';
 
 import './Navbar.css';
 
@@ -34,6 +35,7 @@ function Navbar() {
           {isAuthenticated ? (
             <>
               <Link to="/profile" onClick={closeMenu}>Profile</Link>
+              <Logout />
             </>
           ) : (
             <>
