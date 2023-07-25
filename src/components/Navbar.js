@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-
+import { useAuth } from './useAuth';
 
 import './Navbar.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -29,10 +30,17 @@ function Navbar() {
         </div>
         <div className={`navbar-links ${isOpen ? "show-nav" : ""}`}>
           <Link to="/" onClick={closeMenu}>Search</Link>
-          <Link to="/login" onClick={closeMenu}>Login</Link>
-          <Link to="/register" onClick={closeMenu}>Register</Link>
-          <Link to="/profile" onClick={closeMenu}>Profile</Link>
           <Link to="/about" onClick={closeMenu}>About us</Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/profile" onClick={closeMenu}>Profile</Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login" onClick={closeMenu}>Login</Link>
+              <Link to="/register" onClick={closeMenu}>Register</Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
