@@ -28,7 +28,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.navbar-links a {
+.navbar-links a, .logout-btn {
   color: white;
   text-decoration: none;
 }
@@ -77,4 +77,13 @@
   .menu-icon {
     display: none;
   }
+}
+
+.logout-btn {
+  font-size: 1em;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
 }
