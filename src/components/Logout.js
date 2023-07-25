@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const Logout = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Logout = () => {
   }
 
   return (
-    <button onClick={handleLogout}>Logout</button>
+    <Link className="logout-btn" onClick={handleLogout}>Logout</Link>
   );
 }
 
