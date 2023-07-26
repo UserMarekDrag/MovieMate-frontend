@@ -14,6 +14,7 @@ import SearchForm from './SearchForm';
 import AboutUs from './AboutUs';
 import ResetPassword from './ResetPassword';
 import ChangePassword from './ChangePassword';
+import { AuthProvider } from './AuthContext';
 
 axios.defaults.withCredentials = true;
 
@@ -25,7 +26,7 @@ function App() {
   };
 
   return (
-    <>
+    <AuthProvider>
       <ToastContainer />
       <Router>
           <Navbar />
@@ -41,7 +42,7 @@ function App() {
           </Routes>
           <Footer />
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 
