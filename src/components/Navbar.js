@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { useAuth } from './useAuth';
 import Logout from './Logout';
+import { AuthContext } from './AuthContext';
 
 import './Navbar.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, checkAuth } = useContext(AuthContext);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -20,6 +20,10 @@ function Navbar() {
     setIsOpen(false);
     document.body.classList.remove('overflow-hidden');
   };
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
 
   return (
     <nav className="navbar">

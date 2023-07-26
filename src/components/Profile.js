@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useAuth } from './useAuth';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 import Loader from './Loader';
 import Delete from './Delete';
-
-import './Profile.css';
 
 import './Profile.css';
 
 const Profile = () => {
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const { isAuthenticated, checkAuth } = useAuth();
+  const { isAuthenticated, checkAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,16 +22,17 @@ const Profile = () => {
         setUsername(result.data.user.username);
       } catch (error) {
         console.error(error);
+        checkAuth();
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchUser();
-  }, []);
+  }, [checkAuth]);
 
   if (!isAuthenticated && !isLoading) {
-    checkAuth();
+    navigate('/login');
     return null;
   }
 

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import InputField from './InputField';
+import { AuthContext } from './AuthContext';
 
 import './Login.css';
 
@@ -10,15 +11,14 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    const token = localStorage.getItem('token');
+  const { isAuthenticated, checkAuth } = useContext(AuthContext);
 
-    if (token) {
+  useEffect(() => {
+    if (isAuthenticated) {
       navigate('/profile');
     }
-  }, [navigate]);
-  
+  }, [isAuthenticated, navigate]);
+
   const handleSubmit = async event => {
     event.preventDefault();
 
@@ -35,6 +35,7 @@ function Login() {
     try {
         const response = await axios.post('http://localhost:8000/api-user/login/', user);
         localStorage.setItem('token', response.data.token);
+        checkAuth();
         navigate('/profile');
     } catch (err) {
       setError("Incorrect login or password");

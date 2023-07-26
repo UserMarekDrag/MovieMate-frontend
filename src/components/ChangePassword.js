@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import InputField from './InputField';
 import { toast } from 'react-toastify';
+import { AuthContext } from './AuthContext';
 
 import './ChangePassword.css';
 
 function ChangePassword() {
     const navigate = useNavigate();
+    const { checkAuth } = useContext(AuthContext);
     const [old_password, setOldPassword] = useState("");
     const [new_password, setNewPassword] = useState("");
     const [new_password2, setConfirmPassword] = useState("");
@@ -22,11 +24,12 @@ function ChangePassword() {
           } catch (error) {
             console.error(error);
             navigate('/login');
+            checkAuth();
           }
         };
     
         fetchUser();
-    }, [navigate]);
+    }, [navigate, checkAuth]);
 
     const validate = () => {
         let newErrors = {};

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 const Logout = () => {
   const navigate = useNavigate();
+  const { checkAuth } = useContext(AuthContext);
 
   const handleLogout = async () => {
     try {
@@ -13,6 +15,7 @@ const Logout = () => {
         headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
       });
       localStorage.removeItem('token');
+      checkAuth();
       toast.success('Successfully logout!');
       navigate('/login');
     } catch (error) {
