@@ -56,3 +56,10 @@
 .delete-btn {
   background: #e74c3c;
 }
+
+@media screen and (max-width: 600px) {
+  .profile-card {
+    width: 90%;
+    padding: 20px;
+  }
+}
