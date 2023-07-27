@@ -41,13 +41,16 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile">
-      <h2>Profile</h2>
-      <p>User name: {username}</p>
-      <div className="login-links">
-        <span>Change your password.</span>
-        <Link to="/password/change">Change password</Link>
-        <Delete />
+    <div className="profile-container">
+      <div className="profile-card">
+        <h2>Profile</h2>
+        <div className="user-info">
+          <p><span className="info-label">Username:</span> {username}</p>
+        </div>
+        <div className="action-links">
+          <Link to="/password/change" className="btn-change-password">Change Password</Link>
+          <Delete />
+        </div>
       </div>
     </div>
   );
