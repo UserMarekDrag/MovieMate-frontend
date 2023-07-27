@@ -19,6 +19,12 @@ function SearchForm() {
     setError(null);
     try {
       const result = await axios(`http://127.0.0.1:8000/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
+      if (result.data.length === 0) {
+        setError("No results found");
+        setIsLoading(false);
+        return;
+      }
+      
       const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['desc', 'asc']);
       const groupedByCinema = _.groupBy(sortedMovies, 'cinema.name');
       const groupedByCinemaAndMovie = _.mapValues(groupedByCinema, moviesInCinema => _.groupBy(moviesInCinema, 'movie.title'));
@@ -47,7 +53,7 @@ function SearchForm() {
           <button type="submit">Search</button>
         </div>
       </form>
-      {error && <div>{error}</div>}
+      {error && <div className="error-message">{error}</div>}
       <MovieList groupedMovies={groupedMovies} isLoading={isLoading} />
     </div>
   );
