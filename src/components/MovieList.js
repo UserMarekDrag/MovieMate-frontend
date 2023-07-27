@@ -1,50 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import _ from 'lodash';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { SiGooglemaps } from 'react-icons/si';
 
 import Loader from './Loader';
 import MovieItem from './MovieItem';
 import './MovieList.css';
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
-
-function MovieList() {
-  const [groupedMovies, setGroupedMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  let query = useQuery();
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      setIsLoading(true);
-
-      const city = query.get("city");
-      const date = query.get("date");
-
-      const result = await axios(`http://127.0.0.1:8000/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
-      const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['desc', 'asc']);
-      const groupedByCinema = _.groupBy(sortedMovies, 'cinema.name');
-
-      const groupedByCinemaAndMovie = _.mapValues(groupedByCinema, moviesInCinema => {
-        return _.groupBy(moviesInCinema, 'movie.title');
-      });
-
-      setGroupedMovies(groupedByCinemaAndMovie);
-      setIsLoading(false);
-    };
-
-    if (query.get("city") && query.get("date")) {
-      fetchMovies();
-    }
-  }, [query.toString()]);
-
+function MovieList({ groupedMovies, isLoading }) {
   if (isLoading) {
     return <Loader />;
   }
-
 
   return (
     <div className="movie-list">
