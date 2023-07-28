@@ -5,6 +5,8 @@ import _ from 'lodash';
 import './SearchForm.css';
 import MovieList from './MovieList';
 
+const cities = ["kielce", "gdansk", "krakow", "lublin", "sosnowiec", "poznan", "bydgoszcz"];
+
 function SearchForm() {
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
@@ -44,11 +46,16 @@ function SearchForm() {
             Search for movie screenings in your city!
           </h3>
           <p>
-            Enter city name and select a date to see a list of movies showing in cinemas near you.
+            Select city name and date to see a list of movies showing in cinemas near you.
           </p>
         </div>
         <div className="input-container">
-          <input type="text" value={city} onChange={e => setCity(e.target.value)} placeholder="Enter city" />
+          <select value={city} onChange={e => setCity(e.target.value)}>
+            <option value="">Select city</option>
+            {cities.map((city, index) => (
+              <option key={index} value={city}>{city.charAt(0).toUpperCase() + city.slice(1)}</option>
+            ))}
+          </select>
           <input type="date" value={date} onChange={e => setDate(e.target.value)} />
           <button type="submit">Search</button>
         </div>
