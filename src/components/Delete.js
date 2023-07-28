@@ -8,19 +8,23 @@ const Delete = () => {
   const navigate = useNavigate();
 
   const handleDelete = async () => {
-    try {
-      await axios.delete('http://localhost:8000/api-user/delete/', {
-        headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
-      });
-      toast.success('Successfully Deleted!');
-      navigate('/login');
-    } catch (error) {
-      console.error(error);
+    const confirmDelete = window.confirm("Are you sure you want to delete your account? This operation is irreversible.");
+
+    if (confirmDelete) {
+      try {
+        await axios.delete('http://localhost:8000/api-user/delete/', {
+          headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
+        });
+        toast.success('Successfully Deleted!');
+        navigate('/login');
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
 
   return (
-    <Link className="delete-btn" onClick={handleDelete}>Delete</Link>
+    <Link className="delete-btn" onClick={handleDelete}>Delete Account</Link>
   );
 }
 
