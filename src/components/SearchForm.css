@@ -40,6 +40,15 @@
   align-items: center;
 }
 
+.search-form select {
+  padding: 10px;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-radius: 3px;
+  font-size: 13px;
+  min-width: 60px;
+  background-color: field;
+}
+
 @media (max-width: 600px) {
   .search-form .description-container,
   .search-form .input-container {
