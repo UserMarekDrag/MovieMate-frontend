@@ -17,6 +17,12 @@ function SearchForm() {
   const handleSubmit = async event => {
     event.preventDefault();
 
+
+    if (!city || !date) {
+      setError("Please fill both fields");
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
     try {
