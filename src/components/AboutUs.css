@@ -17,3 +17,10 @@
   .about-us p {
     max-width: 750px;
   }
+
+  @media (max-width: 600px) {
+    .about-us {
+      margin: 5px;
+      padding: 5px;
+    }
+  }
