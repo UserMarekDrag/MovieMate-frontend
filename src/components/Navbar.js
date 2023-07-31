@@ -35,7 +35,7 @@ function Navbar() {
         </div>
         <div className={`navbar-links ${isOpen ? "show-nav" : ""}`}>
           <Link to="/" onClick={closeMenu}>Search</Link>
-          <Link to="/about" onClick={closeMenu}>About us</Link>
+          <Link to="/about" onClick={closeMenu}>About</Link>
           {isAuthenticated ? (
             <>
               <Link to="/profile" onClick={closeMenu}>Profile</Link>
