@@ -11,7 +11,7 @@ const Logout = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:8000/api-user/logout/', {}, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api-user/logout/`, {}, {
         headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
       });
       localStorage.removeItem('token');

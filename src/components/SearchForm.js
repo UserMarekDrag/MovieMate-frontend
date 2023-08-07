@@ -26,7 +26,7 @@ function SearchForm() {
     setIsLoading(true);
     setError(null);
     try {
-      const result = await axios(`http://127.0.0.1:8000/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
+      const result = await axios(`${process.env.REACT_APP_API_URL}/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
       if (result.data.length === 0) {
         setError("No results found");
         setIsLoading(false);

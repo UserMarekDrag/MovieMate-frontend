@@ -33,7 +33,7 @@ function Login() {
     };
 
     try {
-        const response = await axios.post('http://localhost:8000/api-user/login/', user);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api-user/login/`, user);
         localStorage.setItem('token', response.data.token);
         checkAuth();
         navigate('/profile');

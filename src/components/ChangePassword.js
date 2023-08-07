@@ -18,7 +18,7 @@ function ChangePassword() {
     useEffect(() => {
         const fetchUser = async () => {
           try {
-            await axios.get('http://localhost:8000/api-user/user/', {
+            await axios.get(`${process.env.REACT_APP_API_URL}/api-user/user/`, {
               headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
             });
           } catch (error) {
@@ -54,7 +54,7 @@ function ChangePassword() {
             };
 
             try {
-                const response = await axios.put('http://localhost:8000/api-user/change/', password, {
+                const response = await axios.put(`${process.env.REACT_APP_API_URL}/api-user/change/`, password, {
                   headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
                 });
                 console.log(response.data);

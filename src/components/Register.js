@@ -30,7 +30,7 @@ function Register() {
       };
   
       try {
-        const response = await axios.post('http://localhost:8000/api-user/register/', user);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api-user/register/`, user);
   
         if (response.status === 201) {
             toast.success('Successfully registered!');

@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const result = await axios.get('http://localhost:8000/api-user/user/', {
+        const result = await axios.get(`${process.env.REACT_APP_API_URL}/api-user/user/`, {
           headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
         });
         setUsername(result.data.user.username);

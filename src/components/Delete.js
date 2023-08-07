@@ -12,7 +12,7 @@ const Delete = () => {
 
     if (confirmDelete) {
       try {
-        await axios.delete('http://localhost:8000/api-user/delete/', {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api-user/delete/`, {
           headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
         });
         toast.success('Successfully Deleted!');

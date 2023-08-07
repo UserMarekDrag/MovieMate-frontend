@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api-user/user/', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-user/user/`, {
         headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
       });
       setIsAuthenticated(true);
