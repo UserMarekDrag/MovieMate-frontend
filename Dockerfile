@@ -3,7 +3,8 @@ FROM node:14 as build-stage
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
-COPY ./ /app/
+COPY . /app/
+COPY .env /app/.env
 RUN npm run build
 
 # stage-1
