@@ -12,7 +12,6 @@ import Register from './Register';
 import Profile from './Profile';
 import SearchForm from './SearchForm';
 import AboutUs from './AboutUs';
-import ResetPassword from './ResetPassword';
 import ChangePassword from './ChangePassword';
 import { AuthProvider } from './AuthContext';
 
@@ -37,7 +36,6 @@ function App() {
               <Route path="/register" element={ <Register /> } />
               <Route path="/profile" element={ <Profile /> } />
               <Route path="/about" element={ <AboutUs /> } />
-              <Route path="/password/reset" element={ <ResetPassword /> } />
               <Route path="/password/change" element={ <ChangePassword /> } />
           </Routes>
           <Footer />
