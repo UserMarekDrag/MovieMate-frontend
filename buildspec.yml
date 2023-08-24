@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  parameter-store:
+    REACT_APP_API_URL: "REACT_APP_API_URL"
+
+phases:
+  install:
+    commands:
+      - npm install
+
+  pre_build:
+    commands:
+      - echo "REACT_APP_API_URL=$REACT_APP_API_URL" > .env.production
+
+  build:
+    commands:
+      - npm run build
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'build'
