@@ -19,7 +19,7 @@ phases:
 
   post_build:
     commands:
-      - aws s3 sync build/ s3://moviemate-frontend.s3-website.eu-north-1.amazonaws.com/
+      - aws s3 sync build/ s3://moviemate-frontend/
       - aws cloudfront create-invalidation --distribution-id E2J8I869OGBEJF --paths "/*"
 
 artifacts:
