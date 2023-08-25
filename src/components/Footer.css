@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
   background-color: #333;
   color: white;
   position: fixed;
@@ -20,21 +19,4 @@
   align-items: center;
   max-width: 1200px;
   width: 100%; 
-}
-
-.footer-links {
-  display: flex;
-  gap: 10px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-}
-
-@media (max-width: 600px) {
-  .footer-links {
-    align-items: center;
-    gap: 5px;
-  }
 }
