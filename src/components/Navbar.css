@@ -48,7 +48,7 @@
     position: fixed;
     right: 0;
     height: 100%;
-    top: calc(30px + 2em);
+    top: calc(30px + 1.7em);
     background-color: #414141;
     display: flex;
     padding-top: 2em;
