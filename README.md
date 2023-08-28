@@ -42,6 +42,13 @@ The deployment process is automated using AWS CloudPipeline. Any changes pushed 
 
 The frontend is configured to interact seamlessly with the backend, ensuring a smooth user experience.
 
+
+## Backend Repository
+
+The backend repository contains the server-side code for the MovieMade application. It uses Python and Django to handle API requests and communicate with the PostgreSQL database.
+
+For instructions on setting up and running the backend, please refer to the [MovieMate-backend repository](https://github.com/UserMarekDrag/MovieMate-backend).
+
 ## License
 
 The MovieMate project is open-source, released under the MIT License. You are free to use, modify, and distribute the code as per the terms of the license.
