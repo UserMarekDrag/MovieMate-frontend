@@ -36,11 +36,11 @@ This frontend service relies on the backend API to retrieve data. The main API e
 
 ## Deployment
 
-To deploy the frontend in a production environment, follow these steps:
-1. Ensure Docker is installed on the target system.
-2. Clone this repository and navigate to the root directory.
-3. Build the Docker image and start the containers using `docker-compose up --build -d`.
-4. The frontend should now be accessible at the configured host and port.
+The code of the frontend application is stored in an AWS S3 bucket. The frontend of MovieMate is hosted on AWS CloudFront and is accessible via https://d3jxswvg482l9t.cloudfront.net/. It uses an SSL certificate for secure connections.
+
+The deployment process is automated using AWS CloudPipeline. Any changes pushed to the main branch are automatically retrieved by CloudPipeline, built using CodeBuild, and then the current application on CloudFront is replaced with the new version. This ensures that the live application is always up-to-date with the latest changes.
+
+The frontend is configured to interact seamlessly with the backend, ensuring a smooth user experience.
 
 ## License
 
