@@ -12,13 +12,13 @@ function MovieList({ groupedMovies, isLoading }) {
 
   return (
     <div className="movie-list">
-      {Object.entries(groupedMovies).map(([cinemaName, cinemaMovies]) => {
+      {Object.entries(groupedMovies).map(([cinemaPk, cinemaMovies]) => {
         const cinemaInfo = Object.values(cinemaMovies)[0][0].cinema;
-        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${cinemaName}, ${cinemaInfo.address}, ${cinemaInfo.city}`)}`;
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${cinemaInfo.name}, ${cinemaInfo.address}, ${cinemaInfo.city}`)}`;
         return (
-          <div className="cinema-section" key={cinemaName}>
+          <div className="cinema-section" key={cinemaPk}>
             <div className="cinema-info">
-              <h2 className="cinema-name">{cinemaName}</h2>
+              <h2 className="cinema-name">{cinemaInfo.name}</h2>
               <div className="container-address">
                 <p className="cinema-address">{cinemaInfo.city}</p>
                 <p className="cinema-address">{cinemaInfo.address}</p>
