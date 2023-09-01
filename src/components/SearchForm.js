@@ -34,7 +34,7 @@ function SearchForm() {
       }
       
       const sortedMovies = _.orderBy(result.data, ['cinema.name', 'movie.title'], ['desc', 'asc']);
-      const groupedByCinema = _.groupBy(sortedMovies, 'cinema.name');
+      const groupedByCinema = _.groupBy(sortedMovies, 'cinema.pk');
       const groupedByCinemaAndMovie = _.mapValues(groupedByCinema, moviesInCinema => _.groupBy(moviesInCinema, 'movie.title'));
       
       setGroupedMovies(groupedByCinemaAndMovie);
