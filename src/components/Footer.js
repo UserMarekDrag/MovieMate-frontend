@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>&copy; {new Date().getFullYear()} MovieMate by Marek Drąg</p>
+        <p>&copy; {new Date().getFullYear()} MovieMate created by Marek Drąg</p>
       </div>
     </footer>
   );
