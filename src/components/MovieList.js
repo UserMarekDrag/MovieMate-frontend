@@ -20,7 +20,6 @@ function MovieList({ groupedMovies, isLoading }) {
             <div className="cinema-info">
               <h2 className="cinema-name">{cinemaInfo.name}</h2>
               <div className="container-address">
-                <p className="cinema-address">{cinemaInfo.city}</p>
                 <p className="cinema-address">{cinemaInfo.address}</p>
                 <a className="map-icon" href={googleMapsUrl} target="_blank" rel="noreferrer">
                   <SiGooglemaps size={40}/>
