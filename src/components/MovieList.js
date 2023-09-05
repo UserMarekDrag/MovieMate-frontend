@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SiGooglemaps } from 'react-icons/si';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 
 import Loader from './Loader';
 import MovieItem from './MovieItem';
 import './MovieList.css';
 
 function MovieList({ groupedMovies, isLoading }) {
+  const [visibleCinemas, setVisibleCinemas] = useState({});
+
+  const toggleCinemaVisibility = (cinemaPk) => {
+    setVisibleCinemas(prevState => ({
+      ...prevState,
+      [cinemaPk]: !prevState[cinemaPk]
+    }));
+  }
+
   if (isLoading) {
     return <Loader />;
   }
@@ -18,7 +28,7 @@ function MovieList({ groupedMovies, isLoading }) {
         return (
           <div className="cinema-section" key={cinemaPk}>
             <div className="cinema-info">
-              <h2 className="cinema-name">{cinemaInfo.name}</h2>
+              <h2 className="cinema-name"><button onClick={() => toggleCinemaVisibility(cinemaPk)}>{visibleCinemas[cinemaPk] ? <FiMinus /> : <FiPlus />}</button>{cinemaInfo.name}</h2>
               <div className="container-address">
                 <p className="cinema-address">{cinemaInfo.address}</p>
                 <a className="map-icon" href={googleMapsUrl} target="_blank" rel="noreferrer">
@@ -26,7 +36,7 @@ function MovieList({ groupedMovies, isLoading }) {
                 </a>
               </div>
             </div>
-            {Object.entries(cinemaMovies).map(([movieTitle, movieSessions]) => (
+            {visibleCinemas[cinemaPk] && Object.entries(cinemaMovies).map(([movieTitle, movieSessions]) => (
               <MovieItem movieSessions={movieSessions} key={movieTitle} />
             ))}
           </div>
