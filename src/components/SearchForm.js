@@ -5,7 +5,15 @@ import _ from 'lodash';
 import './SearchForm.css';
 import MovieList from './MovieList';
 
-const cities = ["kielce", "gdansk", "krakow", "lublin", "sosnowiec", "poznan", "bydgoszcz"];
+const cities = ['belchatow', 'biala-podlaska', 'bialystok', 'bielsko-biala', 'bydgoszcz', 
+'czechowice-dziedzice', 'dabrowa-gornicza', 'elblag', 'gdansk', 'gdynia', 'glogow', 'gniezno', 
+'gorzow-wielkopolski', 'grudziadz', 'jaworzno', 'jelenia-gora', 'kalisz', 'katowice', 'kedzierzyn-kozle', 
+'kielce', 'klodzko', 'konin', 'koszalin', 'krakow', 'krosno', 'legionowo', 'legnica', 'leszno', 'lodz', 
+'lomza', 'lubin', 'lublin', 'mielec', 'nowy-sacz', 'olsztyn', 'opole', 'ostrow-wielkopolski', 'pabianice', 
+'pila', 'piotrkow-trybunalski', 'plock', 'poznan', 'pruszkow', 'przemysl', 'radom', 'rumia', 'rybnik', 
+'rzeszow', 'siedlce', 'slupsk', 'sopot', 'sosnowiec', 'stalowa-wola', 'starachowice', 'swidnica', 'swinoujscie', 
+'szczecin', 'tarnow', 'tczew', 'tomaszow-mazowiecki', 'tychy', 'tychy', 'warszawa', 'wloclawek', 'wolomin', 
+'wroclaw', 'zabrze', 'zgorzelec', 'zory'];
 
 function SearchForm() {
   const [city, setCity] = useState("");
