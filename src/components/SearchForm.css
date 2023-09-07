@@ -65,8 +65,15 @@
     width: 80%;
   }
 
+  .description-container h3 {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 0em;
+  }
+
   .description-container p {
-    line-height: 2;
+    font-size: 14px;
+    line-height: 1.5;
     margin-top: 0em;
   }
 
