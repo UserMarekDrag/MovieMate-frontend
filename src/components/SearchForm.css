@@ -8,12 +8,22 @@
 }
 
 .search-form .description-container {
-  width: 40%;
+  width: 50%;
   text-align: center;
 }
 
 .description-container h3 {
   text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  font-size: 22px;
+  word-spacing: 2px;
+}
+
+.description-container p {
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 .search-form .input-container {
