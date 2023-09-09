@@ -78,6 +78,7 @@
   .menu-icon {
     display: block;
     cursor: pointer;
+    font-size: 25px;
   }
 }
 
