@@ -65,7 +65,14 @@
   }
 
   .navbar-links a {
-    font-size: 1.5em;
+    font-size: 2em;
+    width: 70%; 
+    padding: 0.5em;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-left: 7%;
+    border-bottom: solid;
+    border-color: #333;
   }
 
   .menu-icon {
