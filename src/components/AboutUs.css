@@ -30,4 +30,14 @@
       margin: 5px 20px 90px 20px;
       padding: 5px;
     }
+    
+    .about-us h2 {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    
+    .about-us p {
+      font-size: 15px;
+      line-height: 1.5;      
+    }
   }
