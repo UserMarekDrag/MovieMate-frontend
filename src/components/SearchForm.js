@@ -12,7 +12,7 @@ const cities = ['belchatow', 'biala-podlaska', 'bialystok', 'bielsko-biala', 'by
 'lomza', 'lubin', 'lublin', 'mielec', 'nowy-sacz', 'olsztyn', 'opole', 'ostrow-wielkopolski', 'pabianice', 
 'pila', 'piotrkow-trybunalski', 'plock', 'poznan', 'pruszkow', 'przemysl', 'radom', 'rumia', 'rybnik', 
 'rzeszow', 'siedlce', 'slupsk', 'sopot', 'sosnowiec', 'stalowa-wola', 'starachowice', 'swidnica', 'swinoujscie', 
-'szczecin', 'tarnow', 'tczew', 'tomaszow-mazowiecki', 'tychy', 'tychy', 'warszawa', 'wloclawek', 'wolomin', 
+'szczecin', 'tarnow', 'tczew', 'tomaszow-mazowiecki', 'tychy', 'warszawa', 'wloclawek', 'wolomin', 
 'wroclaw', 'zabrze', 'zgorzelec', 'zory'];
 
 function SearchForm() {
