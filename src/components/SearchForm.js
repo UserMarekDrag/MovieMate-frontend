@@ -15,9 +15,11 @@ const cities = ['belchatow', 'biala-podlaska', 'bialystok', 'bielsko-biala', 'by
 'szczecin', 'tarnow', 'tczew', 'tomaszow-mazowiecki', 'tychy', 'warszawa', 'wloclawek', 'wolomin', 
 'wroclaw', 'zabrze', 'zgorzelec', 'zory'];
 
+const today = new Date().toISOString().split('T')[0];
+
 function SearchForm() {
   const [city, setCity] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(today);
   const [groupedMovies, setGroupedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
