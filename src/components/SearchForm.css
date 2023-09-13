@@ -60,21 +60,30 @@
 }
 
 @media (max-width: 600px) {
-  .search-form .description-container,
   .search-form .input-container {
     width: 80%;
+  }
+
+  .search-form .description-container{
+    width: 78%;
+  }
+
+  .search-form {
+    margin: 40px 0 0 0;
   }
 
   .description-container h3 {
     font-size: 17px;
     line-height: 1.5;
     margin-top: 0em;
+    text-align: left;
   }
 
   .description-container p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
     margin-top: 0em;
+    text-align: justify;
   }
 
   .search-form .input-container {
