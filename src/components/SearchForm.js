@@ -29,7 +29,7 @@ function SearchForm() {
 
 
     if (!city || !date) {
-      setError("Please fill both fields");
+      setError("Both city and date fields are required for search.");
       return;
     }
 
@@ -38,7 +38,7 @@ function SearchForm() {
     try {
       const result = await axios(`${process.env.REACT_APP_API_URL}/api-movie/cinemas_in_city/?cinema__city=${city}&date=${date}`);
       if (result.data.length === 0) {
-        setError("No results found");
+        setError("No screenings found for the given city and date.");
         setIsLoading(false);
         return;
       }
@@ -49,8 +49,8 @@ function SearchForm() {
       
       setGroupedMovies(groupedByCinemaAndMovie);
     } catch (err) {
-      setError("An error occurred");
-    }
+      setError("Oops! An unexpected error occurred. Please try again later.");
+    }    
     setIsLoading(false);
   };
 
