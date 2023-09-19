@@ -104,4 +104,11 @@
     width: 100%;
     box-sizing: border-box;
   }
+
+  .error-message{
+  font-size: 11px;
+  width: 73%;
+  padding: 10px;
+  font-weight: 500;
+  }
 }
