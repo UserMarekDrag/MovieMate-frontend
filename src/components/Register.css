@@ -64,8 +64,8 @@
   margin-bottom: 15px;
 }
 
-.error-message {
-  color: red;
+.register-form .error-message {
+  width: 90%;
 }
 
 .register-links {
