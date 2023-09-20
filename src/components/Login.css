@@ -22,8 +22,8 @@
     cursor: pointer;
   }
 
-  .error-message {
-    color: red;
+  .login-form .error-message {
+    width: 90%;
   }
   
   .login-links {
