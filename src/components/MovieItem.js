@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './MovieItem.css';
+import Loader from './Loader';  // Upewnij się, że zaimportowałeś loader
 
 function MovieItem({ movieSessions }) {
   const [showTimesVisible, setShowTimesVisible] = useState(false);
+  const [isImageLoaded, setImageLoaded] = useState(false);
   const firstMovieSession = movieSessions[0];
 
   const handleShowtimesToggle = () => {
@@ -12,7 +14,13 @@ function MovieItem({ movieSessions }) {
   return (
     <div className="movie-card">
       <a className="movie-link-individual" href={firstMovieSession.movie.movie_url}>
-        <img className="movie-poster" src={firstMovieSession.movie.image_url} alt={`${firstMovieSession.movie.title} poster`} />
+        {!isImageLoaded && <Loader />}
+        <img 
+          className="movie-poster" 
+          src={firstMovieSession.movie.image_url} 
+          alt={`${firstMovieSession.movie.title} poster`} 
+          onLoad={() => setImageLoaded(true)}
+        />
       </a>
       <div className="movie-info">
         <h3><a className="movie-link-individual" href={firstMovieSession.movie.movie_url}>{firstMovieSession.movie.title}</a></h3>
