@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './MovieItem.css';
-import Loader from './Loader';  // Upewnij się, że zaimportowałeś loader
+import Loader from './Loader';
 
 function MovieItem({ movieSessions }) {
   const [showTimesVisible, setShowTimesVisible] = useState(false);
