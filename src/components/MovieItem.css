@@ -85,6 +85,8 @@
   margin-bottom: 5px;
   color: #000;
   text-decoration: none;
+  margin-bottom: 0;
+  padding: 2px;
 }
 
 .movie-link:hover {
