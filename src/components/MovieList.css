@@ -31,11 +31,11 @@
 }
 
 .cinema-name{
-  width: 30%;
+  width: 40%;
 }
 
 .container-address {
-  width: 100%;
+  width: 65%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
