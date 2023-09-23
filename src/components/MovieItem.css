@@ -10,16 +10,6 @@
   padding: 5px;
 }
 
-@media (max-width: 600px) {
-  .movie-card {
-    width: 45%;
-    height: 400px;
-  }
-  
-  .movie-info h3 {
-    font-size: small;
-  }
-}
 
 @media (min-width: 900px) {
   .movie-card {
@@ -87,6 +77,7 @@
   text-decoration: none;
   margin-bottom: 0;
   padding: 2px;
+  font-size: 1.5em;
 }
 
 .movie-link:hover {
@@ -96,4 +87,19 @@
 .movie-link-individual {
   color: #000;
   text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .movie-card {
+    width: 45%;
+    height: 400px;
+  }
+  
+  .movie-info h3 {
+    font-size: small;
+  }
+
+  .movie-link {
+    padding: 6px 4px 6px 4px;
+  }
 }
