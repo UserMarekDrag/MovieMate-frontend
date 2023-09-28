@@ -95,6 +95,7 @@
   .movie-card {
     width: 45%;
     height: 400px;
+    margin-bottom: 20px;
   }
   
   .movie-info h3 {
@@ -103,5 +104,12 @@
 
   .movie-link {
     padding: 6px 4px 6px 4px;
+  }
+
+  .showtimes-toggle {
+    padding: 10px 0 10px 0;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 }
