@@ -13,7 +13,7 @@ function MovieItem({ movieSessions }) {
 
   return (
     <div className="movie-card">
-      <a className="movie-link-individual" href={firstMovieSession.movie.movie_url}>
+      <a className="movie-link-individual" href={firstMovieSession.movie.movie_url} target="_blank" rel="noopener noreferrer">
         {!isImageLoaded && <Loader />}
         <img 
           className="movie-poster" 
@@ -23,13 +23,13 @@ function MovieItem({ movieSessions }) {
         />
       </a>
       <div className="movie-info">
-        <h3><a className="movie-link-individual" href={firstMovieSession.movie.movie_url}>{firstMovieSession.movie.title}</a></h3>
+        <h3><a className="movie-link-individual" href={firstMovieSession.movie.movie_url} target="_blank" rel="noopener noreferrer">{firstMovieSession.movie.title}</a></h3>
         <button className="showtimes-toggle" onClick={handleShowtimesToggle}>
           Showtimes
         </button>
         <div className={`showtimes-container ${showTimesVisible ? 'visible' : ''}`}>
           {movieSessions.map((session, index) => (
-            <a className="movie-link" href={session.booking_link} key={index}>{session.time}</a>
+            <a className="movie-link" href={session.booking_link} target="_blank" rel="noopener noreferrer" key={index}>{session.time}</a>
           ))}
         </div>
       </div>
